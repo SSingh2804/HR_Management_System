@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+HR Login
+{% endblock title %}
+
+{% block body %}
+<div class="container jumbotron">
+<h1 style="color:blue;text-align: center;">HR LogIn</h1>
+
+<form action="/HRLogin" method="POST">
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" Required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" Required>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">LogIn</button>
+
+</form>
+    <br>
+    Not an User <a href="/HRReg">Signup</a>
+</div>
+{% endblock body %}

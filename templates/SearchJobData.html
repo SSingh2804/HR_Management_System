@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HR Tool</title>
+    <meta charset="utf-8">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 10%;
+            padding: 20px;
+        }
+
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul a:link,
+        a:visited {
+
+            color: black;
+            padding: 15px 25px;
+            text-align: justify;
+            text-decoration: aqua;
+            display: inline-block;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 90%;
+            background-color: #f1f1f1;
+
+        }
+
+        /* Clear floats after the columns */
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>HR Management System</h2>
+    </header>
+    <section>
+        <nav>
+            <ul>
+              <li><a href="CreateJob" style="background-color:#777;">Create</a></li><br>
+              <li><a href="UpdateJob" style="background-color:#777;">Update</a></li><br>
+              <li><a href="DeleteJobData" style="background-color:#777;">Delete</a></li><br>
+              <li><a class="btn btn-primary" href="logout" role="button"> &nbsp;Logout&nbsp;&nbsp;&nbsp;</a></a></li>
+            </ul>
+          </nav>
+
+        <article>
+            <!--
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}-->
+            <div class="container">
+                <h4 class="text-center">Search Job Information</h4>
+                <br>
+                <form action="" method="post">
+                    <table class="table" id="tableID1">
+                        <thead>
+                            <tr>
+                                <th><label for="employee_id" class="form-label">Employee ID</label></th>
+                                <th><label for="empty" class="form-label"> </label></th>
+                                <th><label for="empty" class="form-label"> </label></th>
+                                <th><label for="empty" class="form-label"> </label></th>
+                                <th><label for="empty" class="form-label"> </label></th>
+                                <th><label for="empty" class="form-label"> </label></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="mb-2">
+                                        <input type="number" class="form-control" id="employee_id" name="employee_id"
+                                            aria-describedby="emailHelp" required>
+                                    </div>
+                                </td>
+                                <td><a href=""><button class="btn btn-primary">Search</button></a></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" id="tableID2">
+                        <thead>
+                            <tr>
+                                <th>Job Id</th>
+                                <th>Creation Timestamp</th>
+                                <th>Updated On</th>
+                                <th>Description</th>
+                                <th>Department Number</th>
+                                <th>Activity Status</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>{{job[0][0]}}</td>
+                                <td>{{job[0][1]}}</td>
+                                <td>{{job[0][2]}}</td>
+                                <td>{{job[0][3]}}</td>
+                                <td>{{job[0][4]}}</td>
+                                <td>{{job[0][5]}}</td>
+                                <td>{{job[0][6]}}</td>
+                                <td>{{job[0][7]}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div style="text-align:center">
+                        <!--<a href="/delete"><button class="btn btn-primary">Edit</button></a>
+                        <a href="/delete"><button onclick="return confirm('Sre you sure you want to delete data ??')"
+                                class="btn btn-danger">Delete Entire Data</button></a>-->
+                    </div>
+
+                </form>
+            </div>
+
+        </article>
+    </section>
+</body>
+
+</html>

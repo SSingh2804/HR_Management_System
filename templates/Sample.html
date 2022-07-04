@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management Tool</h2>
+</header>
+<section>
+
+  <nav>
+    <ul>
+        <li><a href="CreateEmployee" style="background-color:#ffffa0">Add Employee</a></li>
+        <li><a href="Leaves">Leaves data</a></li>
+        <li><a href="Salary">Salary data</a></li>
+        <li><a href="Equipment">Equipment data</a></li>
+        <li><a href="DisplayEmpInfo">Employee Information</a></li>
+        <td><a href="/delete/{{emp.eid}}"><button onclick="return confirm("Are you sure to delete data");" class="btn btn-primary">Edit</button></td>
+        
+    </ul>
+  </nav> 
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <div class = "container mt-3">
+
+        <div class = "row">
+
+            <div class = "col-md-3"></div>
+            <div class = "col-md-5 jumbotron">
+                <h4 class = "text-center">Add Employee</h4>
+                <br>
+
+                <form method="POST" action="">
+                    
+                    <div class="btn-btn-group-vertical" role="group"> 
+                        <a class="btn btn-primary btn-lg" href="personaldata" role="button">Add Personal Data</a>
+                        <a class="btn btn-primary btn-lg" href="contactdata" role="button">Add Contact Info</a>
+                    </div><br>
+
+                    <div class="span2">
+                        <a class="btn btn-primary btn-block" href="personaldata" role="button">P data</a>
+                        <a class="btn btn-primary btn-block" href="contactdata" role="button">C data</a>
+                    </div>
+
+                    <div class="btn-btn-card-group" > 
+                        <a class="btn btn-primary btn-lg" href="personaldata" role="button">Add Personal Data</a>
+                        <a class="btn btn-primary btn-lg" href="contactdata" role="button">Add Contact Info</a>
+                    </div><br>
+                    
+                    <div class="mb-2">
+                    <a class="btn btn-primary active" href="" role="button">Active toggle button</a>
+                    <a class="btn btn-primary active" href="" role="button">Active toggle button</a>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            <a class="btn btn-primary active" href="" role="button">Active toggle button 1</a>
+                          </div>
+                        <div>
+
+                        <br>
+
+                        <div class="row">
+                          <div class="col">
+                        <a class="btn btn-primary active" href="" role="button">Active toggle button 2</a></div>
+                        </div>
+                          <div>
+                    </div>
+                   
+
+                </form>
+    
+            </div>
+            <div class = "col-md-4"></div>
+    
+        </div>
+    
+    </div>
+  </article>
+</section>
+</body>
+</html>

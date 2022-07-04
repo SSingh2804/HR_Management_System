@@ -1,0 +1,11 @@
+Address_ID,Employee_ID,Addr1_Street Name,Addr1_Building Name,Addr1_House No.,Addr1_City,Addr1_Postcode,Addr1_Country,Addr2_Street Name,Addr2_Building Name,Addr2_House No.,Addr2_City,Addr2_Postcode,Addr2_Country
+1,10001,LG6,SRH,34,Mannheim,5654,Germany,,,,,,
+2,10002,LG6,SRH,35,Mannheim,5654,Germany,,,,,,
+3,10003,LG6,SRH,36,Mannheim,5654,Germany,,,,,,
+4,10004,LG6,SRH,37,Hiedelberg,5654,Germany,,,,,,
+5,10005,LG6,SRH,38,Hiedelberg,5654,Germany,,,,,,
+6,10006,LG6,SRH,39,Hiedelberg,5654,Germany,,,,,,
+7,10007,LG6,SRH,40,Hiedelberg,5654,Germany,,,,,,
+8,10008,LG6,SRH,41,Hiedelberg,5654,Germany,,,,,,
+9,10009,LG6,SRH,42,Hiedelberg,5654,Germany,,,,,,
+10,10010,LG6,SRH,43,Hiedelberg,5654,Germany,,,,,,

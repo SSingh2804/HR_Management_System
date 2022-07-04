@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management System</h2>
+</header>
+<section>
+  <nav>
+    <ul>
+      <li><a href="CreateFinanceData" style="background-color:#777;">Create</a></li><br>
+      <li><a href="UpdateFinanceData" style="background-color:#777;">Update</a></li><br>
+      <li><a href="DeleteFinanceData" style="background-color:#777;">Delete</a></li><br>
+      <li><a class="btn btn-primary" href="logout" role="button"> &nbsp;Logout&nbsp;&nbsp;&nbsp;</a></a></li>
+    </ul>
+  </nav> 
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <h2>Financial Information</h2>       
+        <table class="table" id="tableID">
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Bank Account Id</th>
+              <th>Bank Name</th>
+              <th>Account Number</th>
+              <th>IBAN</th>
+              <th>Location</th>
+              <th>Account Start Date</th>
+              <th>Account End Date</th>
+              <th>Salary Id</th>
+              <th>Bonus</th>
+              <th>Band</th>
+              <th>Monthly Salary</th>
+              <th>Annual Salary</th>
+              <th>Monthly Tax Deduction</th>
+              <th>Monthly Insurance Deduction</th>
+              <th>Monthly Pension Deduction</th>
+              <th>PF</th>
+              <th>Creation Timestamp</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              {% for fin in finance %}
+            <tr>
+              <td>{{fin[0]}}</td>
+              <td>{{fin[1]}}</td>
+              <td>{{fin[2]}}</td>
+              <td>{{fin[3]}}</td>
+              <td>{{fin[4]}}</td>
+              <td>{{fin[5]}}</td>
+              <td>{{fin[6]}}</td>
+              <td>{{fin[7]}}</td>
+              <td>{{fin[8]}}</td>
+              <td>{{fin[9]}}</td>
+              <td>{{fin[10]}}</td>
+              <td>{{fin[11]}}</td>
+              <td>{{fin[12]}}</td>
+              <td>{{fin[13]}}</td>
+              <td>{{fin[14]}}</td>
+              <td>{{fin[15]}}</td>
+              <td>{{fin[16]}}</td>
+              <td>{{fin[17]}}</td>
+            </tr>
+                {% endfor %}
+          </tbody>
+        </table> 
+        <a href="SearchFinanceData">
+            <input type="button" value="Search">
+        </a>
+        <!-- <a href="DisplayDeptData" style="background-color:#777;">Search</a>       -->
+      </div>
+  </article>
+</section>
+</body>
+</html>
+

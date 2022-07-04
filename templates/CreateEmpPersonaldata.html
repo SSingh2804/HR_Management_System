@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management System</h2>
+</header>
+<section>
+
+  <nav>
+    <ul>
+   
+      <li><a class="btn btn-primary" href="logout" role="button"> &nbsp;Logout&nbsp;&nbsp;&nbsp;</a></a></li>
+    </ul>
+  </nav> 
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <div class = "container mt-3">
+
+        <div class = "row">
+    
+            <div class = "col-md-3"></div>
+            <div class = "col-md-5 jumbotron">
+                <h4 class = "text-center">Create New EMployee Details</h4>
+                <br>
+                <form action="" method="post">
+                    
+                  
+                    <div class="mb-2">
+                        <label for="empid" class="form-label">Employee ID</label>
+                        <input type="number" class="form-control" id="empid" name = "empid" aria-describedby="emailHelp" required>
+                    </div>
+    
+                    <div class="mb-2">
+                        <label for="maritalstat" class="form-label">Marital Status</label>
+                        <input type="text" class="form-control" id="maritalstat" name = "maritalstat" aria-describedby="emailHelp" required>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="qualification" class="form-label">Qualification</label>
+                        <input type="text" class="form-control" id="qualification"  name ="qualification" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="lastemployer" class="form-label">Last Employer</label>
+                      <input type="text" class="form-control" id="lastemployer"  name ="lname" aria-describedby="lastemployer" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="lastempadd" class="form-label">Last Employer Address</label>
+                      <input type="text" class="form-control" id="lastempadd"  name ="lastempadd" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="lastempcont" class="form-label">Last Employer Contact Number</label>
+                      <input type="text" class="form-control" id="lastempcont"  name ="lastempcont" aria-describedby="emailHelp" >
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="prevrole" class="form-label">Previous Role</label>
+                      <input type="text" class="form-control" id="prevrole"  name ="prevrole" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="taxid" class="form-label">Tax Id</label>
+                      <input type="text" class="form-control" id="taxid"  name ="taxid" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="DOB" class="form-label">Date of Birth</label>
+                      <input type="date" class="form-control" id="DOB"  name ="DOB" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="nationality" class="form-label">Nationality</label>
+                      <input type="text" class="form-control" id="nationality"  name ="nationality" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bloddgrp" class="form-label">Blood Group</label>
+                      <input type="text" class="form-control" id="bloddgrp"  name ="bloddgrp" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="addr1sn" class="form-label">Address Line 1 Street Name</label>
+                      <input type="text" class="form-control" id="addr1sn"  name ="addr1sn" aria-describedby="emailHelp" required >
+                    </div>
+
+                  <div class="mb-2">
+                      <label for="ad1bldname" class="form-label">Address Line 1 Building Name </label>
+                      <input type="text" class="form-control" id="ad1bldname"  name ="ad1bldname" aria-describedby="emailHelp" required >
+                  </div>
+  
+                  <div class="mb-2">
+                      <label for="ad1house" class="form-label">Address Line 1 House no.</label>
+                      <input type="text" class="form-control" id="ad1house"  name ="ad1house" aria-describedby="emailHelp" required >
+                  </div>
+
+                  <div class="mb-2">
+                      <label for="ad1city" class="form-label">Address Line 1 City</label>
+                      <input type="text" class="form-control" id="ad1city"  name ="ad1city" aria-describedby="emailHelp" >
+                  </div>
+
+                  <div class="mb-2">
+                    <label for="ad1plz" class="form-label">Address Line 1 Postcode</label>
+                    <input type="text" class="form-control" id="ad1plz"  name ="ad1plz" aria-describedby="emailHelp">
+                  </div>
+
+                  <div class="mb-2">
+                     <label for="ad1country" class="form-label">Address Line 1 Country</label>
+                     <input type="text" class="form-control" id="ad1country"  name ="ad1country" aria-describedby="emailHelp" >
+                  </div>
+
+
+                  <div class="mb-2">
+                    <label for="addr2sn" class="form-label">Address Line 2 Street Name</label>
+                    <input type="text" class="form-control" id="addr2sn"  name ="addr2sn" aria-describedby="emailHelp" required >
+                </div>
+
+                <div class="mb-2">
+                    <label for="ad2bldname" class="form-label">Address Line 2 Building Name </label>
+                    <input type="text" class="form-control" id="ad2bldname"  name ="ad2bldname" aria-describedby="emailHelp" required >
+                </div>
+
+                <div class="mb-2">
+                    <label for="ad2house" class="form-label">Address Line 2 House no.</label>
+                    <input type="text" class="form-control" id="ad2house"  name ="ad2house" aria-describedby="emailHelp" required >
+                </div>
+
+                <div class="mb-2">
+                    <label for="ad2city" class="form-label">Address Line 2 City</label>
+                    <input type="text" class="form-control" id="ad2city"  name ="ad2city" aria-describedby="emailHelp" >
+                </div>
+
+                <div class="mb-2">
+                  <label for="ad2plz" class="form-label">Address Line 2 Postcode</label>
+                  <input type="text" class="form-control" id="ad2plz"  name ="ad2plz" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-2">
+                   <label for="ad2country" class="form-label">Address Line 2 Country</label>
+                   <input type="text" class="form-control" id="ad2country"  name ="ad2country" aria-describedby="emailHelp" >
+                </div>
+  
+
+                    
+
+                    <br>
+                   <button type="submit" class="btn btn-primary btn-small btn-block">Save</button>
+                  
+                </form>
+    
+            </div>
+            <div class = "col-md-4"></div>
+    
+        </div>
+    
+    </div>
+  </article>
+</section>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Employee_ID,Job_Role_ID,First_Name,Middle_Name,Last_Name,Email,Mobile,Date_of_joining,Date_of_leaving,Type_of_employee,Manager_ID,Gender,Accrued_leaves,Shift_code,Dept_no.
+10001,1221,Shweta,,Singh,123@gmail.com,(4) 912-3456,21-05-00,,full time,34,Female,30,1,10
+10002,1222,Abhinav,,Prakash,1123@gmail.com,(4) 594-5849,20-03-98,,full time,35,Male,30,2,10
+10003,1223,Skand,,Swami,1124@gmail.com,(4) 594-5851,21-03-98,22-04-08,full time,36,Male,30,2,11
+10004,1224,Spruha,Shamkant,Ukidave,1126@gmail.com,(4) 594-5852,22-03-98,,full time,37,Female,30,1,6
+10005,1225,Adithya,Hullumane,Venkatesh,13@gmail.com,(4) 594-5853,23-03-98,,full time,42,Male,30,2,7
+10006,1226,Julian,,Kraus,117@gmail.com,(4) 594-5854,24-03-98,,full time,35,Male,30,1,10
+10007,1227,Anna,,Schneider,1198@gmail.com,(4) 594-5855,25-03-98,25-05-01,part time,40,Female,20,2,11
+10008,1228,Saumya,,Rishi,119@gmail.com,(4) 594-5856,26-03-98,,part time,34,Female,20,1,9
+10009,1229,Prashant,,Singh,100@gmail.com,(4) 594-5857,27-03-98,,part time,42,Male,20,2,4
+10010,1230,Prahlad,,Rao,109@gmail.com,(4) 594-5858,28-03-98,,part time,32,Male,18,3,6

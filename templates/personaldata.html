@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management System</h2>
+</header>
+<section>
+
+  <nav>
+    <ul>
+      <li><a href="CreateEmployee" style="background-color:green;">Add Employee</a></li>
+      <li><a href="DisplayEmpInfo" style="background-color:fuchsia;">Employee Details</a></li>
+      <li><a href="employeelist" style="background-color:grey;">Employee List</a></li>
+      <li><a class="btn btn-primary" href="logout" role="button"> &nbsp;Logout&nbsp;&nbsp;&nbsp;</a></a></li>
+    </ul>
+  </nav> 
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <div class = "container mt-3">
+
+        <div class = "row">
+    
+            <div class = "col-md-3"></div>
+            <div class = "col-md-5 jumbotron">
+                <h4 class = "text-center">Personal Details</h4>
+                <br>
+                <form action="" method="post">
+                    
+                    <div class="mb-2">
+                        <label for="employee_id" class="form-label">Employee ID</label>
+                        <input type="number" class="form-control" id="employee_id" name = "employee_id" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname" name = "fname" aria-describedby="emailHelp" required>
+                    </div>
+    
+                    <div class="mb-2">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name = "lname" aria-describedby="emailHelp" required>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="DOB" class="form-label">Date Of Birth</label>
+                        <input type="date" class="form-control" id="DOB"  name ="DOB" aria-describedby="emailHelp" required>
+                    </div>
+                    
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <label for="gender" class="form-label">Gender</label><br>
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="non-binary" value="Non-binary">
+                        <label class="form-check-label" for="non-binary">Non-binary</label>
+                    </div>
+                    <br>
+                    <div class="mb-2">
+                    <label for="SSnumber" class="form-label">Social Security Number</label>
+                    <input type="number" class="form-control" id="SSnumber" name="SSnumber" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" required>
+                    </div>
+                    <br>
+                    <div class="mb-2">
+                        <label for="jobtype">Employee Type</label>
+                        <select type="text" class="form-control" id="job_title" name="job_title" required>
+                        <option value="Internal">Internal</option>
+                        <option value="External">External</option>
+                        </select>
+                    </div>
+                    <br>
+                   <button type="submit" class="btn btn-primary btn btn-primary btn-small btn-block">Save</button>
+                </form>
+    
+            </div>
+            <div class = "col-md-4"></div>
+    
+        </div>
+    
+    </div>
+  </article>
+</section>
+</body>
+</html>

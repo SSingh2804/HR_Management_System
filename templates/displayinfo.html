@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management System</h2>
+</header>
+<section>
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <h2>Employee Information</h2>       
+        <table class="table" id="tableID">
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Job Id</th>
+              <th>First name</th>
+              <th>Middle name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Date of joining</th>
+              <th>Manager Id</th>
+              <th>Gender</th>
+              <th>Accured Leaves</th>
+              <th>Shift Code</th>
+              <th>Dept No.</th>
+              <th>Emp Type Id</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              {% for emp in emps %}
+            <tr>
+              <td>{{emp[0]}}</td>
+              <td>{{emp[1]}}</td>
+              <td>{{emp[2]}}</td>
+              <td>{{emp[3]}}</td>
+              <td>{{emp[4]}}</td>
+              <td>{{emp[5]}}</td>
+              <td>{{emp[6]}}</td>
+              <td>{{emp[7]}}</td>
+              <td>{{emp[8]}}</td>
+              <td>{{emp[9]}}</td>
+              <td>{{emp[10]}}</td>
+              <td>{{emp[11]}}</td>
+              <td>{{emp[12]}}</td>
+              <td>{{emp[13]}}</td>
+              <td><a href="/edit/{{emp[0]}}"><button class="btn btn-primary">Edit</button></td>
+            </tr>
+                {% endfor %}
+          </tbody>
+          <thead>
+            <tr>
+               <th>Marital Status</th>
+              <th>Qualification</th>
+              <th>Last Employer Address</th>
+              <th>Last Employer Contact</th>
+              <th>Previous Role</th>
+              <th>Tax Id</th>
+              <th>DOB</th>
+              <th>Nationality</th>
+              <th>Blood Group</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for item in emps %}
+            <tr>
+              <td>{{item[14]}}</td>
+              <td>{{item[15]}}</td>
+              <td>{{item[16]}}</td>
+              <td>{{item[17]}}</td>
+              <td>{{item[18]}}</td>
+              <td>{{item[19]}}</td>
+              <td>{{item[20]}}</td>
+              <td>{{item[21]}}</td>
+              <td>{{item[22]}}</td>
+              <td><a href="/editPersonalInfo/{{item[0]}}"><button class="btn btn-primary">Edit</button></td>
+
+            </tr>
+                {% endfor %}
+          </tbody>
+          <thead>
+            <tr>
+              <th>Street Name</th>
+              <th>House No.</th>
+              <th>City</th>
+              <th>PLZ</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for item in emps %}
+            <tr>
+              <td>{{item[23]}}</td>
+              <td>{{item[24]}}</td>
+              <td>{{item[25]}}</td>
+              <td>{{item[26]}}</td>
+              <td>{{item[27]}}</td>
+              <td><a href="/editAddress/{{item[0]}}"><button class="btn btn-primary">Edit</button></td>
+           </tr> 
+                {% endfor %}
+          </tbody>
+        </table>        
+      </div>
+      <a href="/delete"><button onclick="return confirm('Sre you sure you want to delete data ??')" class="btn btn-danger">Delete Entire Data</button>
+  </article>
+</section>
+</body>
+</html>
+

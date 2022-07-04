@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HR Tool</title>
+<meta charset="utf-8">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    } 
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 10%;
+      padding: 20px;
+    }
+    
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul  a:link, a:visited {
+  
+  color: black;
+  padding: 15px 25px;
+  text-align: justify;
+  text-decoration: aqua;
+  display: inline-block;
+}
+    
+    article {
+      float: left;
+      padding: 20px;
+      width: 90%;
+      background-color: #f1f1f1;
+      
+    }
+    
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav, article {
+        width: 100%;
+        height: auto;
+      }
+    }
+    </style>
+</head>
+<body>
+<header>
+  <h2>HR Management System</h2>
+</header>
+<section>
+
+  <nav>
+    <ul>
+      <li><a href="DisplayFinanceData" style="background-color:#777;">Display</a></li><br>
+      <li><a href="UpdateFinanceData" style="background-color:#777;">Update</a></li><br>
+      <li><a href="DeleteFinanceData" style="background-color:#777;">Delete</a></li><br>
+      <li><a class="btn btn-primary" href="logout" role="button"> &nbsp;Logout&nbsp;&nbsp;&nbsp;</a></a></li>
+    </ul>
+  </nav> 
+  
+  <article>
+    {% with messages = get_flashed_messages() %}
+ 
+    {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+    {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
+    <div class = "container mt-3">
+
+        <div class = "row">
+    
+            <div class = "col-md-3"></div>
+            <div class = "col-md-5 jumbotron">
+                <h4 class = "text-center">Financial Details</h4>
+                <br>
+                <form action="" method="post">
+                    
+                    <div class="mb-2">
+                      <label for="emp_bank_id" class="form-label">ID</label>
+                      <input type="number" class="form-control" id="emp_bank_id" name = "emp_bank_id" aria-describedby="emailHelp" >
+                    </div>
+                    <div class="mb-2">
+                        <label for="employee_id" class="form-label">Employee ID</label>
+                        <input type="number" class="form-control" id="employee_id" name = "employee_id" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="salary_id" class="form-label">Salary ID</label>
+                      <input type="number" class="form-control" id="salary_id" name = "salary_id" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="bank_acc_id" class="form-label">Bank Account ID</label>
+                        <input type="number" class="form-control" id="bank_acc_id" name = "bank_acc_id" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bank_name" class="form-label">Bank Name</label>
+                      <input type="text" class="form-control" id="bank_name" name = "bank_name" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bank_acc_number" class="form-label">Bank Account number</label>
+                      <input type="text" class="form-control" id="bank_acc_number" name = "bank_acc_number" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bank_iban" class="form-label">Bank IBAN</label>
+                      <input type="text" class="form-control" id="bank_iban" name = "bank_iban" aria-describedby="emailHelp" required>
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bank_location" class="form-label">Bank Location</label>
+                      <input type="text" class="form-control" id="bank_location" name = "bank_location" aria-describedby="emailHelp" required>
+                    </div>
+    
+                    <div class="mb-2">
+                        <label for="start_date" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="start_date" name = "start_date" aria-describedby="emailHelp" required>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="end_date" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="end_date"  name ="end_date" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="bonus" class="form-label">Bonus</label>
+                      <input type="text" class="form-control" id="bonus"  name ="bonus" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="salary_band" class="form-label">Salary Band</label>
+                      <input type="text" class="form-control" id="salary_band"  name ="salary_band" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="monthly_salary" class="form-label">Monthly Salary</label>
+                      <input type="text" class="form-control" id="monthly_salary"  name ="monthly_salary" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="annual_salary" class="form-label">Annual Salary</label>
+                      <input type="text" class="form-control" id="annual_salary"  name ="annual_salary" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="monthly_tax_deduction" class="form-label">Monthly Tax Deduction</label>
+                      <input type="text" class="form-control" id="monthly_tax_deduction"  name ="monthly_tax_deduction" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="monthly_insurance_deduction" class="form-label">Monthly Insurance Deduction</label>
+                      <input type="text" class="form-control" id="monthly_insurance_deduction"  name ="monthly_insurance_deduction" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="monthly_pension_deduction" class="form-label">Monthly Pension Deduction</label>
+                      <input type="text" class="form-control" id="monthly_pension_deduction"  name ="monthly_pension_deduction" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="pf" class="form-label">PF Contribution</label>
+                      <input type="text" class="form-control" id="pf"  name ="pf" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-2">
+                      <label for="salary_creation_timestamp" class="form-label">Salary Creation Timestamp</label>
+                      <input type="datetime" class="form-control" id="salary_creation_timestamp"  name ="salary_creation_timestamp" aria-describedby="emailHelp">
+                    </div>
+
+                    <br>
+                   <button type="submit" class="btn btn-primary btn btn-primary btn-small btn-block">Save</button>
+                </form>
+    
+            </div>
+            <div class = "col-md-4"></div>
+    
+        </div>
+    
+    </div>
+  </article>
+</section>
+</body>
+</html>
